@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cryptocurrency</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>   
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.js"></script>
+</head>
+<body>
+
+
+<div class="container">
+    
+    <div class="row">
+        <h1>Cryptocurrency</h1>
+    </div>
+    <br>
+    <br>
+    <div id="icons">
+    </div>
+
+    <br>
+    <br>
+
+   <input id="datestart" type="date"> <input id="dateend" type="date">
+   <br>
+
+   <button id="submit" type="submit">Submit</button>
+    
+</div>
+    
+    <script>
+
+    $("#submit").on("click", function(event) {
+    event.preventDefault();
+    var timestart = new Date($('#datestart').val());
+    var timeend = new Date($('#dateend').val());
+    console.log(timestart + " / " +timeend);
+    var apikey = "44F0B895-991E-4928-B670-06CB7457F8D5";
+    var queryURL = "https://rest.coinapi.io/v1/ohlcv/BITSTAMP_SPOT_BTC_USD/history?eriod_id=1DAY&time_start="+timestart +"&time_end"+timeend+"&api_key="+ apikey;
+    $.ajax({
+        type: 'POST',
+        url: queryURL,
+        });
+    })     
+    
+    var iconsArray = [
+	"$pac",
+	"abt",
+	"act",
+	"ada",
+	"adx",
+	"ae",
+	"agi",
+	"agrs",
+	"aion",
+	"amb",
+	"amp",
+	"ant",
+	"apex",
+	"appc",
+	"ardr",
+	"ark",
+	"arn",
+	"ary",
+	"ast",
+	"atm",
+	"auto",
+	"bat",
+	"bay",
+	"bcc",
+	"bcd",
+	"bch",
+	"bcn",
+	"bco",
+	"bcpt",
+	"bdl",
+	"bela",
+	"bix",
+	"blcn",
+	"blk",
+	"block",
+	"blz",
+	"bnb",
+	"bnt",
+	"bnty",
+	"bos",
+	"bpt",
+	"bq",
+	"brd",
+	"btc",
+	"btcd",
+	"btcp",
+	"btcz",
+	"btg",
+	"btm",
+	"bts",
+	"btx",
+	"burst",
+	"cdn",
+	"cdt",
+	"cennz",
+	"chat",
+	"chips",
+	"cix",
+	"clam",
+	"cloak",
+	"cmt",
+	"cnd",
+	"cnx",
+	"cny",
+	"cob",
+	"cred",
+	"crpt",
+	"crw",
+	"cs",
+	"ctr",
+	"cvc",
+	"dash",
+	"dat",
+	"data",
+	"dbc",
+	"dcn",
+	"dcr",
+	"dent",
+	"dew",
+	"dgb",
+	"dgd",
+	"dlt",
+	"dnt",
+	"doge",
+	"drgn",
+	"dta",
+	"dtr",
+	"ebst",
+	"edg",
+	"edo",
+	"edoge",
+	"ela",
+	"elf",
+	"elix",
+	"ella",
+	"emc",
+	"emc2",
+	"eng",
+	"enj",
+	"eos",
+	"equa",
+	"etc",
+	"eth",
+	"ethos",
+	"etn",
+	"etp",
+	"eur",
+	"evx",
+	"exmo",
+	"exp",
+	"fair",
+	"fct",
+	"fil",
+	"fldc",
+	"flo",
+	"fsn",
+	"ftc",
+	"fuel",
+	"fun",
+	"game",
+	"gas",
+	"gbp",
+	"gbx",
+	"gbyte",
+	"generic",
+	"gno",
+	"gnt",
+	"grc",
+	"grs",
+	"gto",
+	"gup",
+	"gvt",
+	"gxs",
+	"hpb",
+	"hsr",
+	"html",
+	"huc",
+	"hush",
+	"icn",
+	"icx",
+	"ignis",
+	"ink",
+	"ins",
+	"ion",
+	"iop",
+	"iost",
+	"itc",
+	"jnt",
+	"jpy",
+	"kcs",
+	"kin",
+	"kmd",
+	"knc",
+	"krb",
+	"lbc",
+	"lend",
+	"link",
+	"lkk",
+	"lrc",
+	"lsk",
+	"ltc",
+	"lun",
+	"maid",
+	"mana",
+	"mcap",
+	"mco",
+	"mda",
+	"mds",
+	"med",
+	"miota",
+	"mith",
+	"mkr",
+	"mln",
+	"mnx",
+	"mod",
+	"mona",
+	"mth",
+	"mtl",
+	"music",
+	"mzc",
+	"nano",
+	"nas",
+	"nav",
+	"ncash",
+	"ndz",
+	"nebl",
+	"neo",
+	"neos",
+	"ngc",
+	"nlc2",
+	"nlg",
+	"nmc",
+	"nuls",
+	"nxs",
+	"nxt",
+	"oax",
+	"omg",
+	"omni",
+	"ont",
+	"ost",
+	"ox",
+	"part",
+	"pasl",
+	"pay",
+	"pink",
+	"pirl",
+	"pivx",
+	"plr",
+	"poa",
+	"poe",
+	"poly",
+	"pot",
+	"powr",
+	"ppc",
+	"ppp",
+	"ppt",
+	"prl",
+	"pura",
+	"qash",
+	"qiwi",
+	"qlc",
+	"qrl",
+	"qsp",
+	"qtum",
+	"r",
+	"rads",
+	"rcn",
+	"rdd",
+	"rdn",
+	"rep",
+	"req",
+	"rhoc",
+	"ric",
+	"rise",
+	"rlc",
+	"rpx",
+	"rub",
+	"rvn",
+	"salt",
+	"san",
+	"sbd",
+	"sberbank",
+	"sc",
+	"sky",
+	"slr",
+	"sls",
+	"smart",
+	"sngls",
+	"snm",
+	"snt",
+	"spank",
+	"sphtx",
+	"srn",
+	"start",
+	"steem",
+	"storj",
+	"storm",
+	"strat",
+	"sub",
+	"sys",
+	"taas",
+	"tau",
+	"tel",
+	"theta",
+	"tix",
+	"tkn",
+	"tnb",
+	"tnc",
+	"tnt",
+	"trig",
+	"trx",
+	"tzc",
+	"ubq",
+	"unity",
+	"usd",
+	"usdt",
+	"utk",
+	"ven",
+	"veri",
+	"via",
+	"vib",
+	"vibe",
+	"vivo",
+	"vrc",
+	"vtc",
+	"wabi",
+	"wan",
+	"waves",
+	"wax",
+	"wgr",
+	"wings",
+	"wpr",
+	"wtc",
+	"xas",
+	"xbc",
+	"xby",
+	"xcp",
+	"xdn",
+	"xem",
+	"xlm",
+	"xmg",
+	"xmr",
+	"xmy",
+	"xp",
+	"xpa",
+	"xpm",
+	"xrp",
+	"xtz",
+	"xuc",
+	"xvc",
+	"xvg",
+	"xzc",
+	"yoyow",
+	"zcl",
+	"zec",
+	"zen",
+	"zil",
+	"zrx"
+  ]
+
+        var newarray = [];
+        for (var i = 0; i < 20; i++){
+            var random = Math.floor(Math.random()*iconsArray.length);
+            var index = iconsArray[random];
+            newarray.push(index);
+        } 
+        for (var x = 0; x<5; x ++){
+        var newImg = $('<img>');
+        var scrimg = 'icon/' + newarray[x] + '.png';
+        newImg.attr("data-currency", newarray[x]);
+        newImg.attr("src", scrimg);
+        $("#icons").append(newImg);
+        }
+      
+       
+
+
+    </script>
+
+<body>
+    
+</body>
+</html>
